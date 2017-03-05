@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/jeremy/.atom/.apm/term2/0.9.21'
+let g:netrw_dirhist_2='/Users/jeremy/.atom/.apm/term2/0.9.21/package'
+let g:netrw_dirhist_3='/Users/jeremy/smart-shuttle/server/init'
+let g:netrw_dirhist_4='/'
+let g:netrw_dirhist_5='/Users/jeremy/smart-shuttle/server/init'
+let g:netrw_dirhist_6='/'
+let g:netrw_dirhist_7='/Users/jeremy/smart-shuttle/node_modules/cas-authentication'
+let g:netrw_dirhist_8='/Users/jeremy/matcha/bin'
+let g:netrw_dirhist_9='/Users/jeremy/matcha/config'
