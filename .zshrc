@@ -8,7 +8,7 @@ setopt inc_append_history
 setopt share_history
 
 #conf homemade
-if [[ -f ~/.dotfiles/config/.zshrc ]]; then
+if [[ -f ~/.dotfiles/config/.zshrc && $TERM_PROGRAM != vscode ]]; then
 	source ~/.dotfiles/config/.zshrc
 fi
 export TERM=xterm-256color
