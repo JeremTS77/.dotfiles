@@ -204,40 +204,42 @@ function ___Check_Permition()
 
 function ___Right_Prompt()
 {
-	git_bg=$not_git_bg_color
-	git_fg=$not_git_fg_color
+#	git_bg=$not_git_bg_color
+#	git_fg=$not_git_fg_color
 
 	#power_fg=$red_fg
 	#power_bg=$red_bg
-#	battlev=$(battery_charge)
-#	if [[ 50 -gt $battlev && $battlev -gt 25 ]]; then
-#		power_fg=$battery_fg
-#		power_bg=$battery_bg
+	battlev=$(battery_charge)
+	if [[ 50 -gt $battlev && $battlev -gt 25 ]]; then
+		power_fg=$battery_fg
+		power_bg=$battery_bg
+
+	fi
+	if [[ 26 -gt $battlev ]]; then
+		power_fg=$red_fg
+		power_bg=$red_bg
+	fi
+	if [[ 100 -ge $battlev && $battlev -ge 50 ]]; then
+		power_fg=$host_fg
+		power_bg=$host_bg
+	fi
+	if [[ $(ischarging) == "Yes" ]]; then
+		power_fg=$root_fg
+		power_bg=$root_bg
+	fi
+	RPROMPT=""
+	RPROMPT="${power_fg}${power_bg}${fg_color} $battlev%%"
 #
-#	fi
-#	if [[ 26 -gt $battlev ]]; then
-#		power_fg=$red_fg
-#		power_bg=$red_bg
-#	fi
-#	if [[ 100 -ge $battlev && $battlev -ge 50 ]]; then
-#		power_fg=$host_fg
-#		power_bg=$host_bg
-#	fi
-#	if [[ $(ischarging) == "Yes" ]]; then
-#		power_fg=$root_fg
-#		power_bg=$root_bg
-#	fi
-#		RPROMPT="${power_fg}${power_bg}${fg_color} ⚡ $battlev%% ⚡"
-#
+
 	if [[ -n $(___Check_Git_Branch) ]]; then
 		if [[ -n $(___Check_Git_Status) ]]; then
-#			git_bg=$git_bg_color
-#			git_fg=$git_fg_color
+			#git_bg=$git_bg_color
+			#git_fg=$git_fg_color
 		fi
 #		RPROMPT="${not_git_fg_color}${not_git_bg_color}${fg_color} %D{%H:%M:%S} ${git_fg} ${git_bg}${fg_color} $(___Check_Git_Branch)  ${reset}"
-		RPROMPT=" ${git_fg}${git_bg}${fg_color} $(___Check_Git_Branch) "
-		else
-			RPROMPT="${host_fg}${host_bg} ${fg_color}%m 💻 "
+		RPROMPT+=" ${git_fg}${git_bg}${fg_color} $(___Check_Git_Branch) "
+#		else
+#			RPROMPT="${host_fg}${host_bg} ${fg_color}%m 💻  ${time_fg}${time_bg}${fg_color} %D{%H:%M:%S} ${reset}"
 	fi
 	RPROMPT+=" ${time_fg}${time_bg}${fg_color} %D{%H:%M:%S} ${reset}"
 }
